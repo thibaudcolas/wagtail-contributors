@@ -18,6 +18,19 @@ About 350 people will have GitHub profile data, and the rest will be missing it.
 gh api -X GET /search/users --jq '.items | map({avatar_url,html_url,login})' -f q=<email address or username or name> >> contributors-email.json
 ```
 
+## GitHub avatars collage
+
+Based on the GitHub avatars, we can generate a collage with ImageMagick’s `montage`. Here are two examples:
+
+```bash
+montage avatars/*.png -thumbnail 100x100 -geometry +2+2 -border 1 -bordercolor white -tile 32x20 collage-32x20.jpg
+montage avatars/*.png -thumbnail 100x100 -geometry +2+2 -border 1 -bordercolor white -tile 40x16 collage-40x16.jpg
+```
+
+Here’s an example:
+
+![Collage of 640 contributors as of January 2024](./collage-32x20.avif)
+
 ## [all-contributors](https://github.com/all-contributors/all-contributors)
 
 We can use [all-contributors](https://github.com/all-contributors/all-contributors) to generate a good-looking Markdown table for users with GitHub accounts. In theory, this would also make it possible to "badge" our contributors’ profiles based on the [type of contribution](https://allcontributors.org/docs/en/emoji-key).
