@@ -31,6 +31,14 @@ Here’s an example:
 
 ![Collage of 640 contributors as of January 2024](./collage-32x20.avif)
 
+## Gource video
+
+We can use [Gource](https://gource.io/) to generate a video of the project’s history. This is a good way to visualize the project’s growth and the contributions of its contributors. Here’s an example:
+
+```bash
+gource -s 0.1 -a 1 -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset medium -pix_fmt yuv420p -crf 28 -threads 0 -bf 0 gource.mp4
+```
+
 ## [all-contributors](https://github.com/all-contributors/all-contributors)
 
 We can use [all-contributors](https://github.com/all-contributors/all-contributors) to generate a good-looking Markdown table for users with GitHub accounts. In theory, this would also make it possible to "badge" our contributors’ profiles based on the [type of contribution](https://allcontributors.org/docs/en/emoji-key).
@@ -888,3 +896,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+```
+
+```
